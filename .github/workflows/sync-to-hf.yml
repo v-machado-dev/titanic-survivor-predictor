@@ -11,9 +11,13 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           lfs: true
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
 
       - name: Install Hugging Face CLI
         run: pip install -U huggingface_hub
@@ -21,4 +25,4 @@ jobs:
       - name: Upload app to Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: hf upload SEU_USUARIO_HF/NOME_DO_SPACE titanic_model_dtc . --repo-type space --commit-message "Sync from GitHub"
+        run: hf upload scimldata/titanic-survivor-predictor titanic_model_dtc . --repo-type space --commit-message "Sync from GitHub"
