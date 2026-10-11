@@ -13,7 +13,7 @@ def predict(sex, age, pclass):
 demo = gr.Interface(fn=predict,
                     inputs=[
                         gr.Dropdown(choices=['Male', 'Female'], type='index',
-                                    label='Sex', info="Passenger's Genre"),            
+                                    label='Genre', info="Passenger's Genre"),            
                         gr.Number(label='Age', info="Passenger's Age"),
                         gr.Dropdown(choices=['1', '2', '3'], type='value',
                                     label='Class', info="Ticket class: 1 = First Class, 2 = Second Class, 3 = Third Class"),
